@@ -1,0 +1,47 @@
+---
+title: "Exploring the Sociocultural Factors Behind the Decline of US Birthrates "
+author: "Denise Chang"
+thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/Covid-19_Cases.git "
+date: today
+date-format: long
+abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's sociocultural values between generational groups are key players behind the decline of US birthrates from 2007 to 2020. The results of this study are significant, as a country's birthrate is indicative its economic development, social dynamics and policy development."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+# Introduction 
+A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. Birthrates are indicative useful
+
+Define birthrates, how birthrates affect a society. (economic indicative in particular)
+
+I obtain data from the paper "Puzzle of falling birthrates" to look at the birthrates in relation to the age of the mother (birth cohort?) and by state. I find that the birthrates have been dramatically falling for the younger mothers in XYZ cohort relative to the older mothers who have been rather stable. I also find that the birthrates are significant less in decline in certain states like XYZ, while others see a major decline like XYZ.
+
+The following sections of this paper...
+
+# Data
+## Data Source and Collection
+Where did I get it and what did I use to download it
+
+## Variables of Interest
+which variables am I interest in and why?
+why not other variables
+
+## Data Processing
+what did I use to clean my data?
+Show snippets of what I kept in the end (TABLES ONLY)
+
+# Results
+Convey findings (USE GRAPHS)
+which had lower birthrate and which had higher birthrate?
+By how much different were they?
+
+# Discussion
+3-4 sections interesting points
+- 
+- 
+- 
+1 section weaknesses of paper
+1 potential next steps
+
+# References
