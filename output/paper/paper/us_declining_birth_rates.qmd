@@ -4,18 +4,16 @@ author: "Denise Chang"
 thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/Covid-19_Cases.git "
 date: today
 date-format: long
-abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's sociocultural values between generational groups are key players behind the decline of US birthrates from 2007 to 2020. The results of this study are significant, as a country's birthrate is indicative its economic development, social dynamics and policy development."
+abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's sociocultural values between generational groups are key players behind the decline of US birthrates since 2007. The results of this study are significant, as a country's birthrate is indicative its economic development, social dynamics and policy development."
 format: pdf
 number-sections: true
 bibliography: references.bib
 ---
 
 # Introduction 
-A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. Birthrates are indicative useful
+A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund]. I
 
-Define birthrates, how birthrates affect a society. (economic indicative in particular)
-
-I obtain data from the paper "Puzzle of falling birthrates" to look at the birthrates in relation to the age of the mother (birth cohort?) and by state. I find that the birthrates have been dramatically falling for the younger mothers in XYZ cohort relative to the older mothers who have been rather stable. I also find that the birthrates are significant less in decline in certain states like XYZ, while others see a major decline like XYZ.
+In this paper I am interested in the sociocultural factors behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling of US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2020 for more insights on the influence of generational value gaps. I also take a closer look at the birthrates by state in which birthing mothers reside in to estimate whether regional values influence birthrates. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort. The data also suggests that states in the southwest of the US have a greater change in birthrates than states in the rest of the US. 
 
 The following sections of this paper...
 
@@ -26,6 +24,8 @@ Where did I get it and what did I use to download it
 ## Variables of Interest
 which variables am I interest in and why?
 why not other variables
+birth rate compiled using birth certificates :
+https://www.cdc.gov/nchs/nvss/births.htm 
 
 ## Data Processing
 what did I use to clean my data?
