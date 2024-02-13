@@ -1,10 +1,10 @@
 ---
 title: "Exploring the Sociocultural Factors Behind the Decline of US Birthrates "
 author: "Denise Chang"
-thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/Covid-19_Cases.git "
+thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/US_declining_birth_rates.git"
 date: today
 date-format: long
-abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's sociocultural values between generational groups are key players behind the decline of US birthrates since 2007. The results of this study are significant, as a country's birthrate is indicative its economic development, social dynamics and policy development."
+abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's social values between generational groups are key players behind the decline of US birthrates since 2007. The results of this study are significant, as a country's birthrate is indicative its economic development, social dynamics and policy development."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -13,7 +13,7 @@ bibliography: references.bib
 # Introduction 
 The birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund].
 
-In this paper I am interested in the sociocultural factors behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2019 for more insights on the influence of generational value gaps. I also take a closer look at the birthrates by state in which birthing mothers reside in to estimate whether regional values influence birthrates. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort. The data also suggests that states in the southwest of the US have a greater change in birthrates than states in the rest of the US. 
+In this paper I am interested in the generational gaps behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2019 for more insights on the influence of generational value gaps. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort.
 
 The remainder of this paper is structured into 3 distinct sections. Section 2 discusses the data collection and the studied variables. Section 3 presents the results and finding of the exploration of the dataset with the help of visualized data. Section 4 explores further insights from the results and discusses a few weaknesses of this paper. This section also briefly mention potential next steps following this paper. 
 
@@ -31,7 +31,7 @@ library(here)
 ## Data Collection
 The dataset used in this paper is obtained from the replication package of "The Puzzle of Falling US Birthrates since the Great Recession" [@Main] published in the Journal of Economic Perspectives [@JEP]. The replication package contains dataset compiled from a variety of sources including, but not limited to, the National Center for Health Statistics (NCHS), the Current Population Survey Annual Social and Economic Supplement, the Integrated Public Use Microdata Series (IPUMS) and the New York Federal Reserve/EQUIFAX and the Pew Research Center. 
 
-For this study, I am interested in the aggregated data on birthrates by age cohorts and by state of residency of mothers. The dataset was built by Kearney, Levine and Pardue (2022), the authors of the replication package, using data from the SEER program at NCHS and data from Vital Statistics. The built dataset that captures birthrates by age cohorts organizes the mothers into 6 cohorts of 5 years from 1968 to 1997 inclusively. The built dataset that captures the birthrates by the state of residency contains data from 1990 to 2019 inclusively. 
+For this study, I am interested in the aggregated data on birthrates by age cohorts of mothers. The dataset was built by Kearney, Levine and Pardue (2022), the authors of the replication package, using data from the SEER program at NCHS and data from Vital Statistics. The built dataset  captures birthrates by maternal age cohorts and organizes the mothers into 6 cohorts of 5 years from 1968 to 1997 inclusively.
 
 The dataset used for this paper was retrieved on February 5 2024.
 
@@ -45,7 +45,6 @@ The data was cleaned and processed using the statistical programming language R 
 # Read in data
 all_brate <- read_csv(here::here("input/data/raw_data/raw_brate.csv"))
 brate_by_cohort <- read_csv(here::here("input/data/raw_data/raw_brate_by_cohort.csv"))
-brate_by_state <- read_csv(here::here("input/data/raw_data/raw_brate_by_state.csv"))
 ```
 
 ### National Birthrates
@@ -67,7 +66,7 @@ all_brate |>
 Table 1 is a sample of the ten first rows of the national birthrate data in the US. Each column in this dataset represents a different year in chronological order from 1980 to 2019 inclusively. The "Year" column adds a sense of succession to the data, which allows readers to get more insights on the evolution of birthrates throughout time. The "National Birthrate" column is the calculated national birthrate for its respective year.
 
 ### Maternal Age Cohort
-Maternal age is documented in the US through a voluntary survey as part of a state demographic census. Since this variable is self-reported on a voluntary basis, certain mothers choose to opt out or to not disclose their age at childbirth. These cases are marked as "NA" in the dataset, and was removed from the compilation of the data. 
+Maternal age is documented in the US through a voluntary survey issued by each state. Since this variable is self-reported on a voluntary basis, certain mothers choose to opt out or to not disclose their age at childbirth. These cases are marked as "NA" in the dataset, and was removed from the compilation of the data. The data is organized in 6 age cohorts of 5 years. 
 
 ```{r}
 #| message: false
@@ -89,30 +88,29 @@ brate_by_cohort |>
   
 ```
 
-Table 2 shows a sample of the first 10 rows of the birthrates by maternal age cohorts. Each row in this table represents a year from 1980 to 2019 in chronological order. Similarly to Table 1, the "Year" column allows better estimations of the evolution of birthrates for each of the age cohorts. The remaining 6 columns represent the birthrates of 6 different age cohorts relative to the year of childbirth. For this study, only the mothers aged 15 to 44 were considered in 
-
-
-### State of Residency of Mothers
-In the gathering of the data, the NCHS randomly sampled each states for their birth certificate count. In other words, certain states have as much as 100 percent of their population sampled, while other states sampled about half of the state population.
-
-which variables am I interest in and why?
-why not other variables
-birth rate compiled using birth certificates :
-https://www.cdc.gov/nchs/nvss/births.htm 
-
-Show snippets of what I kept in the end (TABLES ONLY)
+Table 2 shows a sample of the first 10 rows of the birthrates by maternal age cohorts. Each row in this table represents a year from 1980 to 2019 in chronological order. Similarly to Table 1, the "Year" column allows better estimations of the evolution of birthrates for each of the age cohorts. The remaining 6 columns represent the birthrates of the different age cohorts relative to the year of childbirth. A mother who gives birth twice in two different age groups is considered an additional live birth for each cohort. For this study, only the mothers aged 15 to 44 were considered.
 
 # Results
+## National Trends
+
+## Trends by Age Cohorts
 Convey findings (USE GRAPHS)
 which had lower birthrate and which had higher birthrate?
 By how much different were they?
 
 # Discussion
-3-4 sections interesting points
-- 
-- 
-- 
-1 section weaknesses of paper
-1 potential next steps
+## Interesting Point 1
+
+## Interesting Point 2
+
+## Interesting Point 3
+
+## (Maybe) Interesting Point 4
+
+## Weakness
+A weakness in this paper is that not all mothers who gave birth in the studied years are represented evenly. In the gathering of the dataset, the NCHS randomly sampled each states for their birth certificate count to determine the birthrate per state. In other words, certain states have as much as 100 percent of their population sampled, while other states only have about 50 percent of their population sampled. Having a few states over-represented than others can bias the results since women from different home states can adopt different social, cultural and religous values. 
+
+## Future Directions
+explore in depth the influence of geographical influence in birthrate. from the OG study the south west seems to present teh highest decline i birthrate compared to other states. south weststates are also baptist, maybe look into religious values, and level of religious to see if there's an influence there!
 
 # References
