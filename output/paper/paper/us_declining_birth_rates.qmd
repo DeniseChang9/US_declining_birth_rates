@@ -11,7 +11,7 @@ bibliography: references.bib
 ---
 
 # Introduction 
-A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund].
+The birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund].
 
 In this paper I am interested in the sociocultural factors behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2020 for more insights on the influence of generational value gaps. I also take a closer look at the birthrates by state in which birthing mothers reside in to estimate whether regional values influence birthrates. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort. The data also suggests that states in the southwest of the US have a greater change in birthrates than states in the rest of the US. 
 
@@ -31,7 +31,7 @@ library(here)
 ## Data Collection
 The dataset used in this paper is obtained from the replication package of "The Puzzle of Falling US Birthrates since the Great Recession" [@Main] published in the Journal of Economic Perspectives [@JEP]. The replication package contains dataset compiled from a variety of sources including, but not limited to, the National Center for Health Statistics (NCHS), the Current Population Survey Annual Social and Economic Supplement, the Integrated Public Use Microdata Series (IPUMS) and the New York Federal Reserve/EQUIFAX and the Pew Research Center. 
 
-For this study, I am interested in the aggregated data on birthrates by different age cohorts and by different state of residency of mothers. This dataset was built by Kearney, Levine and Pardue (2022), the authors of the replication package, using data from the NCHS microdata. The built dataset capturing birthrates by age cohorts organizes the mothers in 6 cohorts of 5 years from 1968 to 1997 inclusively. The built dataset capturing the birthrates by the state of residency contains data from 1990 to 2019 inclusively. 
+For this study, I am interested in the aggregated data on birthrates by age cohorts and by state of residency of mothers. The dataset was built by Kearney, Levine and Pardue (2022), the authors of the replication package, using data from the NCHS microdata. The built dataset that captures birthrates by age cohorts organizes the mothers into 6 cohorts of 5 years from 1968 to 1997 inclusively. The built dataset that captures the birthrates by the state of residency contains data from 1990 to 2019 inclusively. 
 
 The dataset used for this paper was retrieved on February 5 2024.
 
@@ -42,13 +42,38 @@ The data was cleaned and processed using the statistical programming language R 
 #| message: false
 #| echo: false
 
-
+# Read in data
+all_brate <- read_csv(here::here("input/data/raw_data/raw_brate.csv"))
+brate_by_cohort <- read_csv(here::here("input/data/raw_data/raw_brate_by_cohort.csv"))
+brate_by_state <- read_csv(here::here("input/data/raw_data/raw_brate_by_state.csv"))
 ```
 
-
 ### Birthrates
+Birthrate in the US is calculated as the annual average number of live births per 1,000 individuals in the country at midyear. Births resulting in a child showing evidence of life, such as beating of the heart, pulsation of the umbilical cord and breathing, are considered live births. Live births can originate from any delivery method and from any duration of pregnancy, such that premature babies and babies delivered through Cesarean. The number of live births is measured by the number of birth certificates, which are issued shortly after delivery. Individuals who are considered in the calculation of the birthrate include US citizens and US residents. The national population is measured through a government-funded survey, which is mandatory for all citizens and residents of the US. 
+
+```{r}
+#| message: false
+#| echo: false
+#| #| label: tbl-all_brate_data
+#| tbl-cap: First Ten Rows of the National Birthrate Data
+
+# visualize the first 10 rows of the data
+all_brate |>
+  slice(1:10) |>
+  kable(
+    col.names = c("Year", 
+                  "National Birthrate")
+  )
+```
+
+Table 1 is a sample of te
+
+
 ### Age Cohort of Mothers
+
 ### State of Residency of Mothers
+In the gathering of the data, the NCHS randomly sampled each states for their birth certificate count. In other words, certain states have as much as 100 percent of their population sampled, while other states sampled about half of the state population.
+
 which variables am I interest in and why?
 why not other variables
 birth rate compiled using birth certificates :
