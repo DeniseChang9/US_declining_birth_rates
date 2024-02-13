@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Sociocultural Factors Behind the Decline of US Birthrates "
+title: "Exploring the Generational Gap Behind the Decline of US Birthrates "
 author: "Denise Chang"
 thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/US_declining_birth_rates.git"
 date: today
