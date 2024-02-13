@@ -11,24 +11,49 @@ bibliography: references.bib
 ---
 
 # Introduction 
-A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund]. I
+A birthrate is the average annual number of live births during a year per 1,000 individuals in the population at midyear [@CIA]. The National Center for Health Statistics (NCHS) gathers data on birthrates for women by different demographic factors such as age group, ethnic identity and education level. These information are compiled and made available through the National Vital Statistics System [@NCHS]. Researchers are interested in a country's birthrate as it is a indicative of an economy's health and it is useful for population predictions. A declining birthrate tends to result in a smaller workforce and an aging population, which puts economic pressure on younger generations and on government spending [@Econ]. Hence, in order to predict and reduce these consequences, many previous literature explore factors behind declining birthrates in the US such as cost of living, access to contraceptives and environmental concerns [@Nargund].
 
-In this paper I am interested in the sociocultural factors behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling of US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2020 for more insights on the influence of generational value gaps. I also take a closer look at the birthrates by state in which birthing mothers reside in to estimate whether regional values influence birthrates. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort. The data also suggests that states in the southwest of the US have a greater change in birthrates than states in the rest of the US. 
+In this paper I am interested in the sociocultural factors behind the declining birthrates in the US. Using data from the the article "The Puzzle of Falling US Birthrates since the Great Recession" [@Main], I explore the differences in birthrates between different age cohorts for women from 1980 to 2020 for more insights on the influence of generational value gaps. I also take a closer look at the birthrates by state in which birthing mothers reside in to estimate whether regional values influence birthrates. I find that, although all age cohorts witness a decline in birthrates, younger age cohorts of mothers present a sharper decrease in birthrates than older age cohort. The data also suggests that states in the southwest of the US have a greater change in birthrates than states in the rest of the US. 
 
-The following sections of this paper...
+The remainder of this paper is structured into 3 distinct sections. Section 2 discusses the data collection and the studied variables. Section 3 presents the results and finding of the exploration of the dataset with the help of visualized data. Section 4 explores further insights from the results and discusses a few weaknesses of this paper. This section also briefly mention potential next steps following this paper. 
+
+```{r}
+#| message: false
+#| echo: false
+
+#### Workspace set-up ####
+library(tidyverse)
+library(knitr)
+library(here)
+```
 
 # Data
-## Data Source and Collection
-Where did I get it and what did I use to download it
+## Data Collection
+The dataset used in this paper is obtained from the replication package of "The Puzzle of Falling US Birthrates since the Great Recession" [@Main] published in the Journal of Economic Perspectives [@JEP]. The replication package contains dataset compiled from a variety of sources including, but not limited to, the National Center for Health Statistics (NCHS), the Current Population Survey Annual Social and Economic Supplement, the Integrated Public Use Microdata Series (IPUMS) and the New York Federal Reserve/EQUIFAX and the Pew Research Center. 
 
-## Variables of Interest
+For this study, I am interested in the aggregated data on birthrates by different age cohorts and by different state of residency of mothers. This dataset was built by Kearney, Levine and Pardue (2022), the authors of the replication package, using data from the NCHS microdata. The built dataset capturing birthrates by age cohorts organizes the mothers in 6 cohorts of 5 years from 1968 to 1997 inclusively. The built dataset capturing the birthrates by the state of residency contains data from 1990 to 2019 inclusively. 
+
+The dataset used for this paper was retrieved on February 5 2024.
+
+## Variable of Interest
+The data was cleaned and processed using the statistical programming language R [@R]. Statistical libraries such as `tidyverse` [@tidyverse], `janitor` [@janitor], `knitr` [@knitr] and `here` [@here] are leveraged in the data processing as well.
+
+```{r}
+#| message: false
+#| echo: false
+
+
+```
+
+
+### Birthrates
+### Age Cohort of Mothers
+### State of Residency of Mothers
 which variables am I interest in and why?
 why not other variables
 birth rate compiled using birth certificates :
 https://www.cdc.gov/nchs/nvss/births.htm 
 
-## Data Processing
-what did I use to clean my data?
 Show snippets of what I kept in the end (TABLES ONLY)
 
 # Results
