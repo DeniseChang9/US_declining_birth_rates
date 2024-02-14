@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Generational Gap Behind the Decline of US Birthrates "
+title: "Exploring Maternal Age Cohorts in the Decline of US Birthrates"
 author: "Denise Chang"
 thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/US_declining_birth_rates.git"
 date: today
@@ -77,12 +77,12 @@ Maternal age is documented in the US through a voluntary survey issued by each s
 # remove NA rows
 brate_by_cohort <-
   brate_by_cohort |>
-  filter(year <= "2019")
+  filter(year <= "2019") |>
+  select(year, brate_1519, brate_2024, brate_2529, brate_3034, brate_3539, brate_4044)
 
 # visualize the 10 first rows of the data
 brate_by_cohort |>
   slice(1:10) |>
-  select(year, brate_1519, brate_2024, brate_2529, brate_3034, brate_3539, brate_4044) |>
   kable(col.names = c("Year", "15-19 Years Old", "20-24 Years Old", "25-29 Years Old", "30-34 Years Old", "35-39 Years Old", "40-44 Years Old")
   )
   
@@ -92,11 +92,80 @@ Table 2 shows a sample of the first 10 rows of the birthrates by maternal age co
 
 # Results
 ## National Trends
+Figure 1 illustrates the evolution of birthrates in the US from 1980 to 2020. From 1980 to 2020, the birthrates in the US consistently fluctuated around 65 to 70 births per 1,000 women aged between 15 to 44 years old. During this period, increases in birthrates were followed by similar decreases in the following years. Starting from 2007, birthrates have steadily declined, falling from 69.3 births in 2007 to 55.8 births in 2020, which is a 19.4% decrease. In 2011, the birthrate in the US fell to 63.4 births, which went below the previous minimum of 63.6 births in 1997 by 0.2 births. The lowest birthrate recorded was in 2020, which is the most recent year. 
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-all_brate_data
+#| fig-cap: Birthrates in the US from 1980 to 2020
+
+# plot the graph
+all_brate |>
+  ggplot(aes(x = year, y = brate_all)) +
+  geom_line(colour = "blue") +
+  theme_classic() +
+  labs(x = "Year",
+       y = "Births per 1,000 women aged 15-44") +
+  # adds vertical line at 2007
+  geom_vline(xintercept = 2007, linetype = "dashed", colour = "grey") +
+  annotate("text", x = 2007, y = max(75), label = "2007") +
+  ylim(50,80) +
+  # stylistic adjustments
+  theme(panel.grid.major.y = element_line(color = "lightgrey"),
+        axis.title = element_text(colour = "black"))
+```
+
 
 ## Trends by Age Cohorts
-Convey findings (USE GRAPHS)
-which had lower birthrate and which had higher birthrate?
-By how much different were they?
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-brate_by_cohort_data
+#| fig-cap: Birthrates in the US from 1980 to 2019 by Maternal Age Cohorts
+
+# select columns of interest
+brate_by_cohort <-
+  brate_by_cohort |>
+  select(year,brate_1519,brate_2024,brate_2529,brate_3034,brate_3539,brate_4044)
+
+# change format to long format 
+long_brate_by_cohort <- 
+  brate_by_cohort |>
+  pivot_longer(cols = -year, names_to = "age_cohort", values_to = "birth_rate")
+
+# rename the age cohorts
+long_brate_by_cohort$age_cohort <- 
+  factor(long_brate_by_cohort$age_cohort,
+         levels = c("brate_1519", "brate_2024", "brate_2529", "brate_3034", "brate_3539", "brate_4044"),
+         labels = c("15-19 years old", "20-24 years old", "25-29 years old", "30-34 years old", "35-39 years old", "40-44 years old"))
+
+# plot the graph
+long_brate_by_cohort |>
+  ggplot(aes(x = year, y = birth_rate, color = age_cohort)) +
+  geom_line() +
+  theme_classic() +
+  labs(x = "Year",
+       y = "Births per 1,000 women in relevatn subgroups") +
+  scale_color_discrete(name = "Age Cohort") + 
+  geom_vline(xintercept = 2007, linetype = "dashed", colour = "grey") +
+  annotate("text", x = 2007, y = max(125), label = "2007") + 
+  geom_vline(xintercept = 1990, linetype = "dashed", colour = "grey") +
+  annotate("text", x = 1990, y = max(125), label = "1990") +
+  # stylistic adjustments
+  theme(panel.grid.major.y = element_line(color = "lightgrey"),
+        axis.title = element_text(colour = "black"))
+```
+Figure 2 illustrates the trend in birthrates from 1980 to 2019 by maternal age groups. Every age groups present different trends and intensity of change, which are marked by significant change in the years 1990 and 2007. 
+
+The 15-19 years old groups of mothers shows the most dramatic decline in birthrate in the studied years. Since its peak birthrate in 1991 at 61.8 births per 1,000 women, this age group's birthrate fell to 41.5 births in 2007 and to 16.7 births in 2019. The birthrates decreased by 32.8% between the years 1991 and 2007, and then decreased by 59.8% between 2007 and 2019. Both of the checkpoint years resulted in a drastic decline in birthrates in subsequent years, more so after 2007, for mothers in the 15-19 age cohorts. 
+
+The 20-24 years old group of mothers shows similar trend as the 15-19 years old group, but at a higher general birthrate. In 1990, this age cohort peaked at 116.5 births per 1,000 women, and fell to 101.5 births in 2004 before dropping even lower to 66.6 births in 2019. From 1990 to 2007, birthrates for this age group decreased by 12.9%, and then decreased by another 34.4% between 2007 and 2019. The birthrate for the 20-24 years old group was already in slight decline since 1990, and experienced a more pronounced decline in 2004 tto 2019.
+
+The 25-29 years old group of mothers presents a decrease in birthrate mainly after 2007. In 1990, the birthrate of the age group was at 120.2 births per 1,000 women. The birthrate decreased by 1.7% in 2007 to a birthrate of 118.1 births. Finally, the birthrate decreased by another 20.7% in 2019 to 93.7 births. 
+
+While the three younger age groups each present different decreasing evolution trends marked by the years 1990 and 2007, the three older maternal age cohorts (30-34 years old, 35-39 years old and 40-44 years old) shows steady increasing birthrate trends. The data from 1980 to 2020, though at distinct general birthrates, shows that the older age groups has consistent increases in numbers of birth per 1,000 women per year.
+
 
 # Discussion
 ## Interesting Point 1
@@ -109,7 +178,7 @@ By how much different were they?
 
 ## Weakness
 A weakness in this paper is that not all mothers who gave birth in the studied years are represented evenly. In the gathering of the dataset, the NCHS randomly sampled each states for their birth certificate count to determine the birthrate per state. In other words, certain states have as much as 100 percent of their population sampled, while other states only have about 50 percent of their population sampled. Having a few states over-represented than others can bias the results since women from different home states can adopt different social, cultural and religous values. 
-
++ we can talk about the non-hospitable births such as home births and births from societies like XYZ. no birth certificate hence not counted in the study. 
 ## Future Directions
 explore in depth the influence of geographical influence in birthrate. from the OG study the south west seems to present teh highest decline i birthrate compared to other states. south weststates are also baptist, maybe look into religious values, and level of religious to see if there's an influence there!
 
