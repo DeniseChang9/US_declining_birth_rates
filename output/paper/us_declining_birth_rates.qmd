@@ -53,7 +53,7 @@ Birthrate in the US is calculated as the annual average number of live births pe
 ```{r}
 #| message: false
 #| echo: false
-#| #| label: tbl-all_brate_data
+#| label: tbl-all_brate_data
 #| tbl-cap: First Ten Rows of the National Birthrate Data
 
 # visualize the first 10 rows of the data
@@ -90,6 +90,8 @@ brate_by_cohort |>
 
 Table 2 shows a sample of the first 10 rows of the birthrates by maternal age cohorts. Each row in this table represents a year from 1980 to 2019 in chronological order. Similarly to Table 1, the "Year" column allows better estimations of the evolution of birthrates for each of the age cohorts. The remaining 6 columns represent the birthrates of the different age cohorts relative to the year of childbirth. A mother who gives birth twice in two different age groups is considered an additional live birth for each cohort. For this study, only the mothers aged 15 to 44 were considered.
 
+\newpage
+
 # Results
 ## National Trends
 Figure 1 illustrates the evolution of birthrates in the US from 1980 to 2020. From 1980 to 2020, the birthrates in the US consistently fluctuated around 65 to 70 births per 1,000 women aged between 15 to 44 years old. During this period, increases in birthrates were followed by similar decreases in the following years. Starting from 2007, birthrates have steadily declined, falling from 69.3 births in 2007 to 55.8 births in 2020, which is a 19.4% decrease. In 2011, the birthrate in the US fell to 63.4 births, which went below the previous minimum of 63.6 births in 1997 by 0.2 births. The lowest birthrate recorded was in 2020, which is the most recent year. 
@@ -110,6 +112,8 @@ all_brate |>
   # adds vertical line at 2007
   geom_vline(xintercept = 2007, linetype = "dashed", colour = "grey") +
   annotate("text", x = 2007, y = max(75), label = "2007") +
+  geom_vline(xintercept = 1990, linetype = "dashed", colour = "grey") +
+  annotate("text", x = 1990, y = max(75), label = "1990") +
   ylim(50,80) +
   # stylistic adjustments
   theme(panel.grid.major.y = element_line(color = "lightgrey"),
@@ -146,7 +150,7 @@ long_brate_by_cohort |>
   geom_line() +
   theme_classic() +
   labs(x = "Year",
-       y = "Births per 1,000 women in relevatn subgroups") +
+       y = "Births per 1,000 women in relevant subgroups") +
   scale_color_discrete(name = "Age Cohort") + 
   geom_vline(xintercept = 2007, linetype = "dashed", colour = "grey") +
   annotate("text", x = 2007, y = max(125), label = "2007") + 
@@ -168,18 +172,23 @@ While the three younger age groups each present different decreasing evolution t
 
 
 # Discussion
-## Interesting Point 1
+## Economic Health and Unemployment Rate
+On a national level, the two notable drops in birthrate in 1990 and in 2007 illustrated in Figure 1 can be explained by a combination of economic factors. In both 1990 and 2007, the US experienced a recession, characterized by a persistent decline in economic activity and usually followed by increasing unemployment rate in the population [@Investopedia]. Decreasing employment causes financial stress for households, which discourage women from having children. Raising a child includes rising costs relating to higher housing costs and higher living costs such as food and education. 
 
-## Interesting Point 2
+In Figure 2, the youngest age group of 15 to 19 years old mothers had the greatest decline at both recessions, while the oldest age group of 40 to 44 years old mothers were the least impacted. A study conducted in 1994 highlighted that teenage workers had the largest share of the employment reductions in the 1990 as well as in the previous economic contractions [@Labour]. Assuming that this trend can be applied to the recession in 2007, this could suggest that the unemployment rate plays a major role in the declining birthrate by age groups. During recessionary periods, the teen groups have the least amount of education, hence have the least amount of marketable skills. The younger groups end up being the first group influenced by the increasing unemployment rate. Unemployed individuals have unstable income and lower amount of dispensable income, making motherhood less attractive. The unemployment rate playing a role in the birthrates by age group is also consistent with the older age groups' birthrate evolution. For example, the age cohort of 40 to 44 years old had unnoticeable change in births per 1,000 women in 1990 and in 2007. This makes sense since older women in the workforce are associated with higher positions in workplaces than younger women. Older women have more experience and more marketable skills in the labor market, hence making them one of the last age groups affected by the rising unemployment rate. 
 
-## Interesting Point 3
+## Social Values and Views on Homosexuality
+Another pertinent phenomenon is the change in social values in cohorts of women. An analysis of the data from the General Social Survey (GSS) finds that each cohort is more liberal than the one that came before it [@Politics], suggesting that older age cohorts is more conservative. Older women tend to have more conservative values, influencing their views about love and relationships. A conservative view supports heterosexual relationships, and condemns homosexuality. In fact, a study in 2011 concluded that around 66% of Boomers opposed gay marriages [@Homo]. The data from this survey was collected through a voluntary survey in the US. This would explain the higher ratio of heterosexual relationships in older age cohorts, which can result in higher childbirth. On the other side, the younger cohorts, each more liberal than its previous cohort, is more accepting and supports homosexuality. The same study concluded that around 60% of Millenials and 50% of Gen Xers favour gay marriages [@Homo]. This freedom of sexuality in younger cohorts of women causes a higher ratio of homosexual couples, which are unable to naturally conceive. This reduces the portion of the US population that is able to participate in birthrates. 
 
-## (Maybe) Interesting Point 4
+## Role of Women and Shifting of Priorities
+Between younger and older generations of women, the change in views of a woman's role in society can contribute to the difference in trends in birthrates. Older generations of women, having lived through most of their lives in a patriarchal society, believe in the woman's role as a caregiver and as a household position. Catering to their husband's needs and taking care of children are household responsibilities associates to women. As a housewife, women do not need to worry about providing financially for the households other than giving birth to more children who will gain income for the family in the future. In later years, the rising access to education for women gives women opportunity to join the labour force, and to shift their priorities away from the traditional housewife role to a more independent self-sustainable lifestyle. In fact, a study in 2012 concluded that higher education was related to lower probabilities of teenage childbirths [@Childbirth]. Women getting access to higher education also contributed to the shifting of their priorities towards a career-driven lifestyle. This new priority delays motherhood as women tend to settle down in a households at a later age in life, thus giving birth at a later stage. A national census in the US estimates that the median age at marriage for women has risen from a low of 20 years in the 1950’s to 27 years in 2016 [@Marriage].
 
 ## Weakness
-A weakness in this paper is that not all mothers who gave birth in the studied years are represented evenly. In the gathering of the dataset, the NCHS randomly sampled each states for their birth certificate count to determine the birthrate per state. In other words, certain states have as much as 100 percent of their population sampled, while other states only have about 50 percent of their population sampled. Having a few states over-represented than others can bias the results since women from different home states can adopt different social, cultural and religous values. 
-+ we can talk about the non-hospitable births such as home births and births from societies like XYZ. no birth certificate hence not counted in the study. 
+In the gathering of the data, the NCHS randomly sampled each states for their birth certificate count to determine the birthrate per state. In other words, certain states have as much as 100 percent of their population sampled, while other states only have about 50 percent of their population sampled. Having a few states over-represented than others can bias the results since women from different home states can adopt different social, cultural and religious values. This sampling method of random portions of birth certificates do not accurately represent women in the US, which is a weakness in the collected data used for this paper. 
+
+Another weakness that affects the dataset is the measurement of the birthrates. As described in Section 2 of the paper, the number of live births is measured through the number of birth certificates issued in that year. These birth certificates are only issues in hospitals and clinics where the child was born. Hence, this measurement method does not capture the non-hospitable births such as home births and births in retreated societies like cults. 
+
 ## Future Directions
-explore in depth the influence of geographical influence in birthrate. from the OG study the south west seems to present teh highest decline i birthrate compared to other states. south weststates are also baptist, maybe look into religious values, and level of religious to see if there's an influence there!
+Another aspect that could be interesting to explore would be the birthrates by geographical location in the US. Each state in the US have their own political background and different religious presence, both factors that could influence population values and affect birthrates. For example, the replicated paper did an analysis of this data and found that Southwest states in the US seems to present sharper decline in birthrates relative to other states [@Main]. That geographical section is also known to have a higher concentration of baptists. It could be interesting to explore the values associated with the religion, and to evaluate the religious commitment of the population. 
 
 # References
