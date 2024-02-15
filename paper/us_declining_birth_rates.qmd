@@ -1,10 +1,10 @@
 ---
-title: "Exploring Maternal Age Cohorts in the Decline of US Birthrates"
+title: "Exploring Generational Differences in the Decline of US Birthrates from 1980 to 2020"
 author: "Denise Chang"
-thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/US_declining_birth_rates.git"
+thanks: "Code and data supporting this analysis are available at: https://github.com/DeniseChang9/US_declining_birth_rates.git ; Replication on Social Science Reproduction platform available at: https://doi.org/10.48152/ssrp-3pkb-y352"
 date: today
 date-format: long
-abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's social values between generational groups are key players behind the decline of US birthrates since 2007. The results of this study are significant, as a country's birthrate is indicative of its economic development, social dynamics and policy development."
+abstract: "Since the early 21st century, birthrates in the United States have been steadily declining. This paper uses data from the American Economic Association to investigate the decline in birthrates in the US and to explore potential factors behind this phenomenon. Based on the exploration of the data, there is strong evidence that the differences in women's social values between generational groups are key players behind the decline of US birthrates from 1980 to 2020. The results of this study are significant, as a country's birthrate is indicative of its economic development, social dynamics and policy development."
 format: pdf
 number-sections: true
 bibliography: references.bib
