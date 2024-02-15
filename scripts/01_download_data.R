@@ -3,7 +3,10 @@
 # Data: 5 February 2024
 # Contact: dede.chang@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: None
+# Pre-requisites: 
+# - input/data/data_from_source/fig_1.csv
+# - input/data/data_from_source/figs_1_2_3.csv
+# - input/data/data_from_source/numbirths_2001_2019.csv
 
 
 #### Workspace setup ####
