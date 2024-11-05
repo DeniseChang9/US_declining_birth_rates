@@ -1,4 +1,4 @@
-# Analysis of Generational Differences in the Decline of US Birth Rates from 1980 to 2007
+# Analysis of Generational Differences in the Decline of U.S. Birth Rates from 1980 to 2007
 ## Overview
 This paper explores generational influences on declining birthrates in the US. Explicitly, it explores possible social factors that creates gaps between age cohorts of women, which influences the birthrates for each age groups. This paper is a replication of "The Puzzle of Falling US Birth Rates since the Great Recession" by Melissa S. Kearney, Phillip b. Levine, and Luke Pardue, which appeard in the Winter 2022 edition of the Journal of Economics Perspectives.
 
