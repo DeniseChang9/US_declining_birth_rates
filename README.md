@@ -2,6 +2,10 @@
 ## Overview
 This paper explores generational influences on declining birthrates in the US. Explicitly, it explores possible social factors that creates gaps between age cohorts of women, which influences the birthrates for each age groups. This paper is a replication of "The Puzzle of Falling US Birth Rates since the Great Recession" by Melissa S. Kearney, Phillip b. Levine, and Luke Pardue, which appeard in the Winter 2022 edition of the Journal of Economics Perspectives.
 
+Useful links:
+- Link to the original paper: https://www.jstor.org/stable/27099463 
+- Link to the replication package: https://doi.org/10.1257/jep.36.1.151
+
 ## File Structure
 The repository is structured as follow:
 -   `input/data/data_from_source` contains the data downloaded from the replication package used in the analysis.
